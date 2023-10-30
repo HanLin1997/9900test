@@ -13,7 +13,8 @@ class MLP(nn.Module):
         x = F.relu(self.fc1(x))
         x = self.batch_norm(x)
         x = self.fc2(x)
-        return F.sigmoid(x)
+        #return F.sigmoid(x)   F.sigmoid 将被废弃，用torch.sigmoid(x)替代, 这是运行时给出的警告
+        return torch.sigmoid(x)  
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
